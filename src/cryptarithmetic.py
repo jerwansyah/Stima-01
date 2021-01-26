@@ -106,7 +106,7 @@ def substitute(l1):
 def solve():
     # Menyelesaikan cryptarithmetic.
     # Jika tidak berhasil nilai -1 dihasilkan
-    global solution, key, cases, firstletters, start, l2
+    global solution, key, cases, firstletters, start, l2, end
     cases = 0
     firstletters.clear()
     start = datetime.now()
@@ -125,6 +125,7 @@ def solve():
                 lefthand += int(l2[operand])
             cases += 1
             if lefthand == righthand:
+                end = datetime.now()
                 return
 
 def transform(l1,l2):
@@ -150,7 +151,6 @@ def printsolution():
             print(''.join(word.rjust(width) for word in row))
         i += 1
 
-    end = datetime.now()
     print('Jumlah uji kasus: ' + str(cases) + ' kasus')
     print(f'Waktu eksekusi  : {end - start}')
 
